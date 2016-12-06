@@ -6,7 +6,7 @@ let app = document.getElementById('page');
 const Card = React.createClass({
   getInitialState(){
     return {
-      name: "JACKIE JACKSON"
+      name: "JACKIE"
     }
   },
   changeCard(newName){
@@ -26,8 +26,6 @@ const Card = React.createClass({
 
 const Display = React.createClass({
   render(){
-    console.log( name)
-  
     return (  
       <div className="display">
         <h1> {this.props.name} </h1>
@@ -44,9 +42,11 @@ const Control = React.createClass({
   },
   render(){
     return (  
-      <select className="control"
+      <select 
+        className="control"
         name="names" 
-        id="names">
+        id="names"
+        onChange={this.handleChange}>
         <option value="JACKIE">Jackie</option>
         <option value="MARLON">Marlon</option>
         <option value="TITO">Tito</option>
