@@ -30,12 +30,10 @@ const Card = React.createClass({
 
 const Display = React.createClass({
   render(){
-    let name = this.props.name;
-    let img = this.props.img;
     return (  
       <div className="display">
-        <h1> {name} </h1>
-        <img src={img} />
+        <h1> {this.props.name} JACKSON</h1>
+        <img src={this.props.img} />
       </div>
     );
   }
@@ -44,9 +42,7 @@ const Display = React.createClass({
 const Control = React.createClass({
   handleChange(e){
     let name = e.target.value;
-    let jpg = name + '.jpg';
-    let img = 'assets/' + jpg;
-
+    let img = `assets/${name}.jpg`;
     this.props.onChange(name, img)
   },
   render(){
