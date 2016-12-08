@@ -1,6 +1,6 @@
 # Jackson Five 
 
-Demonstrate the React UI programming pattern where a stateful component renders two child components: one to manipulate its internal state, and another to display content based on its internal state. All styles are contained within each component. 
+Demonstration of the React UI programming pattern where a stateful component renders two child components: one to manipulate its internal state, and another to display content based on its internal state. 
 
 ```js
 import React from 'react';
@@ -43,12 +43,12 @@ let styles = {
   boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)'
 }
 ```
-The Parent component, `Card`, passes its state down to a child, `Display`, and a custom function down to another child, `Control`, as an event handler. 
+* The Parent component, `Card`, passes its state down to a child, `Display`, and a custom function down to another child, `Control`, as an event handler. 
 
-It is a stateful component, so it has a `getInitialState` method that returns a `name` and an `img` property. These are the two dynamic properties that will be changed, and passed down as props. 
+* `Card` is a stateful component, so it has a `getInitialState` method that returns a `name` and an `img` property. These are the two dynamic properties that will be changed, and passed down as props. 
 
-To change the value of the two properties in state, `Card` declares a custom function called `changeCard` with a parameter for each value we intend to change and calls `this.setState()`, setting the state to the values passed into the `changeCard` function.  
-Finally, `Card` renders two child components, passing state to the presentational component, `Display`, and the state changing function to `Control`, as an `onChange` event handler.
+* To change the value of the two properties in state, `Card` declares a custom function called `changeCard` with a parameter for each value we intend to change and calls `this.setState()`, setting the state to the values passed into the `changeCard` function.  
+* Finally, `Card` renders two child components, passing state to the presentational component, `Display`, and the state changing function to `Control`, as an `onChange` event handler.
 
 ```js
 import React from 'react';
@@ -86,7 +86,9 @@ let imgStyles = {
   borderRadius: '50%'
 }
 ```
-`Display` is the presentational component, basically an empty scaffolding. Its sole purpose is to recieve the props passed to it, and render them as HTML-like JSX. It contains a `propTypes` object, documenting which props it expects - in this case a `name`, and an `img`, both strings. 
+
+* `Display` is the presentational component, basically an empty scaffolding. Its sole purpose is to recieve the props passed to it, and render them as HTML-like JSX. 
+* It contains a `propTypes` object, documenting which props it expects - in this case a `name`, and an `img`, both strings. 
 
 
 ```js
@@ -127,10 +129,10 @@ let styles = {
 ```
 
 
-`Control` updates its sibling, `Display`, by changing the state of `Card`. 
+* `Control` updates its sibling, `Display`, by changing the state of `Card`. 
 
-`Control` is passed the state changing custom function, `changeCard` as the value to it's `onChange` prop, which updates the state of its parent, `Card`, due to React's automatic binding.
+* `Control` is passed the state changing custom function, `changeCard` as the value to it's `onChange` prop, which updates the state of its parent, `Card`, due to React's automatic binding.
 
-`Control` can't call `changeCard` directly, because it is currently taking an event object as its argument, and we want it to take a `newName` and `newImg`. We need a custom function to get the info we want FROM the event object, and pass it into `changeCard`. For this we have to declare a custom function, `handleChange`
+* `Control` can't call `changeCard` directly, because it is currently taking an event object as its argument, and we want it to take a `newName` and `newImg`. We need a custom function to get the info we want FROM the event object, and pass it into `changeCard`. For this we have to declare a custom function, `handleChange`
 
-`handleChange` is called as an event handler in the render function.
+* `handleChange` is called as an event handler in the render function.
