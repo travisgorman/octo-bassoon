@@ -3,8 +3,8 @@ body {
 
 .card {
   background: yellow;
-  width: 400px;
-  margin: 0 auto;
+  width: 340px;
+  margin: 2rem auto;
   display: flex;
   flex-direction: column; }
 
@@ -18,14 +18,15 @@ body {
 
 .control {
   font-size: 1.3rem;
-  width: 300px;
+  width: 180;
   margin: 1rem auto; }
 
 h1 {
-  text-align: center; }
+  text-align: center;
+  font-size: 1.3rem; }
 
 img {
   text-align: center;
-  width: 300px; }
+  width: 180px; }
 
 /*# sourceMappingURL=main.css.map */
