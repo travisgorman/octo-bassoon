@@ -49,11 +49,12 @@ let styles = {
 * `Card` is a stateful component, so it has a `getInitialState` method that returns a `name` and an `img` property. These are the two dynamic properties that will be changed, and passed down as props. 
 
 * To change the value of the two properties in state, `Card` declares a custom function called `changeCard` with a parameter for each value we intend to change and calls `this.setState()`, setting the state to the values passed into the `changeCard` function.  
+
 * Finally, `Card` renders two child components, passing state to the presentational component, `Display`, and the state changing function to `Control`, as an `onChange` event handler.
 
 ___
 
-## The Stateless Child Presentational Component — `Display`
+## The Presentational Child Component — `Display`
 ```js
 import React from 'react';
 
@@ -92,6 +93,7 @@ let imgStyles = {
 ```
 
 * `Display` is the presentational component, basically an empty scaffolding. Its sole purpose is to recieve the props passed to it, and render them as HTML-like JSX. 
+
 * It contains a `propTypes` object, documenting which props it expects - in this case a `name`, and an `img`, both strings. 
 
 * `Display` can also be written as a stateless functional component like this...
@@ -107,7 +109,9 @@ function Display(props){
 }
 ```
 * Stateless functional components always take two optional parameters `props`, and `state` and output HTML-like JSX. 
+
 * Written this way, it is a **function**, not an object, so `props` is accessed directly (there is no `this`)
+
 * If I wanted to add `propTypes`, I would have to define a propTypes object as a property of the component itself, like...
 
 ```js
@@ -119,7 +123,7 @@ Display.propTypes = {
 
 ___
 
-## The Stateless Sibling Logic/Event Handling Component — `Control`
+## The State-Changing/Event Handling Sibling Component — `Control`
 
 ```js
 import React from 'react';
@@ -158,11 +162,14 @@ let styles = {
 
 ```
 
-
 * `Control` updates its sibling, `Display`, by changing the state of `Card`. 
 
 * `Control` is passed the state changing custom function, `changeCard` as the value to it's `onChange` prop, which updates the state of its parent, `Card`, due to React's automatic binding.
 
-* `Control` can't call `changeCard` directly, because it is currently taking an event object as its argument, and we want it to take a `newName` and `newImg`. We need a custom function to get the info we want FROM the event object, and pass it into `changeCard`. For this we have to declare a custom function, `handleChange`
+* `Control` can't call `changeCard` directly, because it is currently taking an event object as its argument, and we want it to take a `newName` and `newImg`. 
 
-* `handleChange` is called as an event handler in the render function.
+* to get the info we want FROM the event object, and pass it into `changeCard`, declare a custom function, `handleChange`.
+
+* `handleChange` takes an event object parameter (as all event handlers do by default)
+
+* in the render function, `handleChange` is called by an `onChange` event handler on the menu element.
