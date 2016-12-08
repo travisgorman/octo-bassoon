@@ -2,6 +2,7 @@
 
 Demonstration of the React UI programming pattern where a stateful component renders two child components: one to manipulate its internal state, and another to display content based on its internal state. 
 
+## The Stateful Parent Component — `Card`
 ```js
 import React from 'react';
 import Display from './Display';
@@ -50,6 +51,9 @@ let styles = {
 * To change the value of the two properties in state, `Card` declares a custom function called `changeCard` with a parameter for each value we intend to change and calls `this.setState()`, setting the state to the values passed into the `changeCard` function.  
 * Finally, `Card` renders two child components, passing state to the presentational component, `Display`, and the state changing function to `Control`, as an `onChange` event handler.
 
+___
+
+## The Stateless Child Presentational Component — `Display`
 ```js
 import React from 'react';
 
@@ -90,6 +94,9 @@ let imgStyles = {
 * `Display` is the presentational component, basically an empty scaffolding. Its sole purpose is to recieve the props passed to it, and render them as HTML-like JSX. 
 * It contains a `propTypes` object, documenting which props it expects - in this case a `name`, and an `img`, both strings. 
 
+___
+
+## The Stateless Sibling Logic/Event Handling Component — `Control`
 
 ```js
 import React from 'react';
