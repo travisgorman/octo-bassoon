@@ -31,9 +31,9 @@ const Card = React.createClass({
 export default Card;
 
 let styles = {
-  background: 'yellow',
   width: 340,
   margin: '2rem auto',
   display: 'flex',
-  flexDirection: 'column'
+  flexDirection: 'column',
+  boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)'
 }

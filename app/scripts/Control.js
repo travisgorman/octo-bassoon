@@ -1,6 +1,9 @@
 import React from 'react';
 
 const Control = React.createClass({
+  propTypes: {
+    onChange: React.PropTypes.func.isRequired,
+  },
   handleChange(e){
     let name = e.target.value;
     let img = `assets/${name}.jpg`;
