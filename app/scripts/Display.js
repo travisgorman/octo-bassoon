@@ -1,24 +1,13 @@
 import React from 'react';
 
-const Display = React.createClass({
-  propTypes: {
-    name: React.PropTypes.string.isRequired,
-    img: React.PropTypes.string.isRequired,
-  },
-  render() {
-    return (  
-      <div style={styles}>
-        <h1 style={{ fontSize: 20 }}>
-          {this.props.name} JACKSON
-        </h1>
-        <img style={imgStyles}
-          src={this.props.img} />
-      </div>
-    );
-  }
-});
-
-export default Display;
+function Display(props){
+  return (
+    <div style={styles} >
+      <h1 style={{ fontSize: 20 }}>{props.name} JACKSON</h1>
+      <img style={imgStyles} src={props.img}/>
+    </div>
+  );
+}
 
 let styles = {
   display: 'flex',
@@ -28,10 +17,19 @@ let styles = {
   color: '#333',
   fontFamily: 'sans-serif'
 }
+
 let imgStyles = {
   width: 250,
   borderRadius: '50%'
 }
+
+Display.propTypes = {
+  name: React.PropTypes.string.isRequired,
+  img: React.PropTypes.string.isRequired,
+}
+
+export default Display;
+
 // The purpose of this component is to display props given to it
 // propTypes is optional. it shows the props the component expects to recieve
 // It is a "presentational" component

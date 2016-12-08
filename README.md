@@ -94,6 +94,29 @@ let imgStyles = {
 * `Display` is the presentational component, basically an empty scaffolding. Its sole purpose is to recieve the props passed to it, and render them as HTML-like JSX. 
 * It contains a `propTypes` object, documenting which props it expects - in this case a `name`, and an `img`, both strings. 
 
+* `Display` can also be written as a stateless functional component like this...
+
+```js
+function Display(props){
+  return (  
+    <div style={styles} >
+      <h1 style={{ fontSize: 20 }}>{props.name} JACKSON</h1>
+      <img style={imgStyles} src={props.img}/>
+    </div>
+  );
+}
+```
+* Stateless functional components always take two optional parameters `props`, and `state` and output HTML-like JSX. 
+* Written this way, it is a **function**, not an object, so `props` is accessed directly (there is no `this`)
+* If I wanted to add `propTypes`, I would have to define a propTypes object as a property of the component itself, like...
+
+```js
+Display.propTypes = {
+  name: React.PropTypes.string.isRequired,
+  img: React.PropTypes.string.isRequired,
+}
+```
+
 ___
 
 ## The Stateless Sibling Logic/Event Handling Component — `Control`
