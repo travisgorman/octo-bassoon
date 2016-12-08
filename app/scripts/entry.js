@@ -1,24 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 let app = document.getElementById('page');
 
 const Card = React.createClass({
   getInitialState(){
     return {
-      name: "JACKIE"
+      name: "JACKIE",
+      img: "assets/jackie.jpg"
     }
   },
-  changeCard(newName){
+  changeCard(newName, newImg){
     return this.setState({
       name: newName,
+      img: newImg,
     })
   },
   render(){
     return (  
       <div className="card" >
-        <Display name={this.state.name} />
-        <Control onChange={this.changeCard} />
+        <Display 
+          name={this.state.name} 
+          img={this.state.img} />
+        <Control 
+          onChange={this.changeCard} />
       </div>
     );
   }
@@ -26,10 +30,12 @@ const Card = React.createClass({
 
 const Display = React.createClass({
   render(){
+    let name = this.props.name;
+    let img = this.props.img;
     return (  
       <div className="display">
-        <h1> {this.props.name} </h1>
-        <img src="assets/JACKIE.jpg" />
+        <h1> {name} </h1>
+        <img src={img} />
       </div>
     );
   }
@@ -38,7 +44,10 @@ const Display = React.createClass({
 const Control = React.createClass({
   handleChange(e){
     let name = e.target.value;
-    this.props.onChange(name)
+    let jpg = name + '.jpg';
+    let img = 'assets/' + jpg;
+
+    this.props.onChange(name, img)
   },
   render(){
     return (  
