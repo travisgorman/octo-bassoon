@@ -6,11 +6,10 @@ const Control = React.createClass({
     let img = `assets/${name}.jpg`;
     this.props.onChange(name, img);
   },
-  render(){
+  render() {
     return (  
       <select 
-        className="control"
-        name="names"
+        style={styles}
         onChange={this.handleChange}>
         <option value="JACKIE">Jackie</option>
         <option value="MARLON">Marlon</option>
@@ -23,6 +22,13 @@ const Control = React.createClass({
 });
 
 export default Control;
+
+let styles = {
+  fontSize: 16,
+  width: 180,
+  margin: '1rem auto',
+}
+
 
 // two methods: a `handleChange` and a `render` 
 // the `handleChange` takes an event object argument since it is used as an event handler

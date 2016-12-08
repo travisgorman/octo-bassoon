@@ -17,7 +17,7 @@ const Card = React.createClass({
   },
   render(){
     return (  
-      <div className="card" >
+      <div style={styles}>
         <Display 
           name={this.state.name}
           img={this.state.img} />
@@ -29,3 +29,11 @@ const Card = React.createClass({
 });
 
 export default Card;
+
+let styles = {
+  background: 'yellow',
+  width: 340,
+  margin: '2rem auto',
+  display: 'flex',
+  flexDirection: 'column'
+}
